@@ -1,0 +1,15 @@
+{
+  "name": "tictactoe-with-ai",
+  "version": "2.0.0",
+  "description": "N x N tic-tac-toe with an alpha-beta search AI",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node scripts/serve.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
