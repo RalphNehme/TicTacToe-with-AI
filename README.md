@@ -4,6 +4,8 @@ A browser tic-tac-toe game played on boards from 3 × 3 up to 7 × 7, with a
 configurable number of marks in a row needed to win. The AI uses alpha-beta
 search, can't be beaten on 3 × 3 and plays strongly on larger boards.
 
+**[▶ Play it here](https://ralphnehme.github.io/TicTacToe-with-AI/)**
+
 No frameworks and no build step: plain ES modules, a Web Worker and CSS.
 
 ## Features
@@ -18,15 +20,11 @@ No frameworks and no build step: plain ES modules, a Web Worker and CSS.
   light and dark themes, keyboard play (arrow keys + Enter) and screen-reader
   labels.
 
-## Running it
+## Play it
 
-ES modules and workers don't load from `file://`, so serve the folder:
+**[Play in your browser →](https://ralphnehme.github.io/TicTacToe-with-AI/)**
 
-```bash
-npm start          # zero-dependency server on http://localhost:8080
-```
-
-Any other static server works too, and so does GitHub Pages.
+Nothing to install; it runs in any modern browser, including on phones.
 
 ## Tests
 
