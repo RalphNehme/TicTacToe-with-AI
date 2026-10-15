@@ -3,19 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <title>Tic-Tac-Toe AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="src/main.js"></script>
   </head>
   <body>
     <main class="app">
       <header class="app-header">
-        <h1>Tic-Tac-Toe <span>AI</span></h1>
+        <h1>Tic&#8209;Tac&#8209;Toe <span class="accent">AI</span></h1>
+        <p class="tagline">Alpha-beta search on boards up to 7 × 7</p>
       </header>
 
+      <section class="scoreboard" aria-label="Score">
+        <div class="score score-human">
+          <span class="score-label">You <span id="humanMarkLabel">X</span></span>
+          <span class="score-value" id="score-human">0</span>
+        </div>
+        <div class="score score-draw">
+          <span class="score-label">Draws</span>
+          <span class="score-value" id="score-draw">0</span>
+        </div>
+        <div class="score score-ai">
+          <span class="score-label">AI <span id="aiMarkLabel">O</span></span>
+          <span class="score-value" id="score-ai">0</span>
+        </div>
+      </section>
+
+      <div class="board-wrap">
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+        <div class="board" id="board" role="grid" aria-label="Game board"></div>
+      </div>
+
       <form class="settings" id="settings">
-        <label>
-          Board size
+        <div class="field">
+          <label for="size">Board</label>
           <select name="size" id="size">
             <option value="3">3 × 3</option>
             <option value="4">4 × 4</option>
@@ -23,41 +51,44 @@
             <option value="6">6 × 6</option>
             <option value="7">7 × 7</option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          In a row to win
+        <div class="field">
+          <label for="winLength">In a row</label>
           <select name="winLength" id="winLength"></select>
-        </label>
+        </div>
 
-        <fieldset>
-          <legend>You play</legend>
-          <label><input type="radio" name="humanMark" value="X" checked /> X</label>
-          <label><input type="radio" name="humanMark" value="O" /> O</label>
-        </fieldset>
-
-        <fieldset>
-          <legend>First move</legend>
-          <label><input type="radio" name="firstPlayer" value="human" checked /> You</label>
-          <label><input type="radio" name="firstPlayer" value="ai" /> AI</label>
-        </fieldset>
-
-        <label>
-          Difficulty
+        <div class="field">
+          <label for="difficulty">Difficulty</label>
           <select name="difficulty" id="difficulty">
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
             <option value="unbeatable" selected>Unbeatable</option>
           </select>
-        </label>
+        </div>
 
-        <button type="submit">New game</button>
+        <fieldset class="field segmented">
+          <legend>You play</legend>
+          <div class="segments">
+            <label><input type="radio" name="humanMark" value="X" checked /><span>X</span></label>
+            <label><input type="radio" name="humanMark" value="O" /><span>O</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field segmented">
+          <legend>First move</legend>
+          <div class="segments">
+            <label><input type="radio" name="firstPlayer" value="human" checked /><span>You</span></label>
+            <label><input type="radio" name="firstPlayer" value="ai" /><span>AI</span></label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="button primary">New game</button>
+          <button type="button" class="button ghost" id="resetScore">Reset score</button>
+        </div>
       </form>
-
-      <p class="status" id="status" role="status" aria-live="polite"></p>
-
-      <div class="board" id="board" role="grid" aria-label="Game board"></div>
     </main>
   </body>
 </html>
