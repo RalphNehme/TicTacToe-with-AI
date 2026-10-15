@@ -304,6 +304,11 @@ export function findBestMove(board, mark, options = {}) {
     return { index, score: 0, depth: 0, nodes: 0, elapsedMs: now() - started };
   }
 
+  // Nothing to decide, e.g. the opening move on a large board.
+  if (rootMoves.length === 1) {
+    return { index: rootMoves[0], score: 0, depth: 0, nodes: 0, elapsedMs: now() - started };
+  }
+
   const remaining = board.cellCount - board.moveCount;
   const depthLimit = Math.min(maxDepth, remaining);
   let result = { move: rootMoves[0], score: 0 };
